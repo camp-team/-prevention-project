@@ -1,0 +1,33 @@
+.calendar {
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+}
+
+:host ::ng-deep {
+  .fc .fc-daygrid-day-frame {
+    position: relative;
+    height: 45px;
+    max-width: 500px;
+  }
+
+  .fc .fc-daygrid-day-number {
+    padding: 0;
+    padding-right: 4px;
+    font-size: 14px;
+  }
+
+  .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+    position: relative;
+    min-height: 0;
+    height: 15px;
+  }
+
+  .fc-pokemon,
+  .fc-pokemon div,
+  .fc-pokemon span a {
+    border: none;
+    background: url('/assets/images/001.png') no-repeat;
+    background-size: 20px 20px;
+  }
+}
