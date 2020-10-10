@@ -10,7 +10,6 @@ import { switchMap } from 'rxjs/operators';
 })
 export class UserService {
   uid: string;
-
   user$: Observable<User> = this.afAuth.authState.pipe(
     switchMap((afUser) => {
       if (afUser) {
@@ -27,7 +26,19 @@ export class UserService {
     private db: AngularFirestore
   ) { }
 
+  getPokemonList(uid: string) {
+    return this.db
+      .doc(`users/${uid}/collections/pokemons`)
+      .valueChanges();
+  }
+
   updateUser(user: User): Promise<void> {
     return this.db.doc(`users/${user.uid}`).update(user);
+  }
+  updateMyPokemonCollections(pokemonId: number, uid: string) {
+    console.log('affaf', pokemonId);
+    return this.db.doc(`users/${uid}/collections/pokemons`).update({
+      [pokemonId]: true
+    });
   }
 }
