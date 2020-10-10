@@ -17,6 +17,9 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { GetPokemonDialogComponent } from './get-pokemon-dialog/get-pokemon-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
 
@@ -34,6 +37,7 @@ FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
     AngularFireAnalyticsModule,
     FullCalendarModule,
     MatSnackBarModule,
+    MatDialogModule,
   ],
   providers: [{ provide: REGION, useValue: 'asia-northeast1' }],
   bootstrap: [AppComponent],
