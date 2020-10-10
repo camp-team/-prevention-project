@@ -21,6 +21,7 @@ import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
 
@@ -46,6 +47,7 @@ FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
+    MatButtonModule,
   ],
   providers: [{ provide: REGION, useValue: 'asia-northeast1' }],
   bootstrap: [AppComponent],
