@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs/operators';
+import { GetPokemonDialogComponent } from 'src/app/get-pokemon-dialog/get-pokemon-dialog.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,10 +13,12 @@ import { UserService } from 'src/app/services/user.service';
 export class QuizeComponent implements OnInit {
   questions: boolean[] = [true, true, true];
   noGetPokemonList = [];
+  numbers = [];
 
   constructor(
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -45,12 +49,21 @@ export class QuizeComponent implements OnInit {
       new Array(2).fill(null).forEach(() => {
         const randomNumber = Math.floor(Math.random() * this.noGetPokemonList.length + 1);
         console.log(result);
-        this.updateMyPokemonCollections(randomNumber);
+        this.updateMyPokemonCollections(this.noGetPokemonList[randomNumber]);
+        this.numbers.push(this.noGetPokemonList[randomNumber]);
       });
     } else if (result === 0) {
       return;
     } else {
-      this.updateMyPokemonCollections(randomPokemonId);
+      this.updateMyPokemonCollections(this.noGetPokemonList[randomPokemonId]);
+      this.numbers.push(this.noGetPokemonList[randomPokemonId]);
     }
+
+    this.dialog.open(GetPokemonDialogComponent, {
+      width: '1000px',
+      data: {
+        Congratulation: this.numbers
+      }
+    });
   }
 }
