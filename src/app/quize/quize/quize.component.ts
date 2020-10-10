@@ -10,9 +10,6 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class QuizeComponent implements OnInit {
   questions: boolean[] = [true, true, true];
-  question1: boolean;
-  question2: boolean;
-  question3: boolean;
   noGetPokemonList = [];
 
   constructor(
