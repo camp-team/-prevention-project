@@ -15,11 +15,12 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { GetPokemonDialogComponent } from './get-pokemon-dialog/get-pokemon-dialog.component';
 
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent],
+  declarations: [AppComponent, WelcomeComponent, GetPokemonDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
