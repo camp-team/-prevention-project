@@ -9,6 +9,7 @@
 .pokemon {
   text-align: center;
   margin: 0 auto;
+
   &__img {
     background: #ffffff;
     width: 80px;
@@ -16,9 +17,22 @@
     margin: 0 0 5px;
     border: solid 1px #e3e3e3;
     border-radius: 6px;
+
+    &--no-image {
+      background: linear-gradient(to top, #009a42, #00a399);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(25deg, #45c480, #7adea9);
+      opacity: 0.9;
+    }
     img {
       object-fit: contain;
     }
+  }
+  &__no-image {
+    font-size: 22px;
+    color: #fff;
   }
   &__name {
     margin: 0;
