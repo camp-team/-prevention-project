@@ -21,7 +21,7 @@ export const createUserAccount = functions
       .then(() => {
         return db
           .doc(`users/${user.uid}/collections/pokemons`)
-          .set({ pokemons });
+          .set({ ...pokemons });
       })
       .catch((err) => {
         functions.logger.error(err);
