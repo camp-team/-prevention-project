@@ -8,10 +8,9 @@ export const createUserAccount = functions
   .onCreate(async (user) => {
     db.doc(`users/${user.uid}`)
       .set({
+        uid: user.uid,
         name: user.displayName,
-        email: user.email,
         createdAt: new Date(),
-        userId: user.uid,
       })
       .then(() => {
         functions.logger.info('success');
