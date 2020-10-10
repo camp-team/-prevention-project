@@ -1,0 +1,8 @@
+@import 'mixins';
+
+app-pokemon-list {
+  @include sp {
+    order: 2;
+    margin-top: 56px;
+  }
+}
