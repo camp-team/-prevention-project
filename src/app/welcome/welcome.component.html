@@ -1,1 +1,7 @@
-<p>welcome works!</p>
+<section class="pokemon-top">
+  <div class="pokemon-top__swiper">
+    <div class="pokemon-top__images-wrap" *ngFor="let pokemonId of pokemons">
+      <img class="pokemon-top__images" src="assets/images/{{pokemonId}}.png" alt="">
+    </div>
+  </div>
+</section>
