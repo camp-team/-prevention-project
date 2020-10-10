@@ -17,11 +17,20 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { GetPokemonDialogComponent } from './get-pokemon-dialog/get-pokemon-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HeaderComponent } from './header/header.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, GetPokemonDialogComponent],
+  declarations: [
+    AppComponent,
+    WelcomeComponent,
+    GetPokemonDialogComponent,
+    HeaderComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,6 +43,9 @@ FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
     AngularFireAnalyticsModule,
     FullCalendarModule,
     MatSnackBarModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
   ],
   providers: [{ provide: REGION, useValue: 'asia-northeast1' }],
   bootstrap: [AppComponent],

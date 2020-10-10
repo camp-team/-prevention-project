@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { User } from 'firebase';
+
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { User } from '../interfaces/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   uid: string;
@@ -21,15 +22,10 @@ export class UserService {
     })
   );
 
-  constructor(
-    private afAuth: AngularFireAuth,
-    private db: AngularFirestore
-  ) { }
+  constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {}
 
   getPokemonList(uid: string) {
-    return this.db
-      .doc(`users/${uid}/collections/pokemons`)
-      .valueChanges();
+    return this.db.doc(`users/${uid}/collections/pokemons`).valueChanges();
   }
 
   updateUser(user: User): Promise<void> {
@@ -38,7 +34,7 @@ export class UserService {
   updateMyPokemonCollections(pokemonId: number, uid: string) {
     console.log('affaf', pokemonId);
     return this.db.doc(`users/${uid}/collections/pokemons`).update({
-      [pokemonId]: true
+      [pokemonId]: true,
     });
   }
 }

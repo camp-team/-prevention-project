@@ -1,0 +1,40 @@
+<mat-toolbar>
+  <div class="container">
+    <div class="header">
+      <h1 class="header__title">LOGO</h1>
+      <div
+        *ngIf="userService.user$ | async as user; else default"
+        class="button"
+      >
+        <button
+          class="button__icon"
+          mat-mini-fab
+          [matMenuTriggerFor]="avatar"
+          [style.background-image]="
+            'url(/assets/images/' + user.myPokemon + '/.png)'
+          "
+        ></button>
+        <mat-menu #avatar="matMenu">
+          <button routerLink="/settings" mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>設定</span>
+          </button>
+          <button mat-menu-item (click)="authService.logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>ログアウト</span>
+          </button>
+        </mat-menu>
+      </div>
+      <ng-template #default>
+        <button
+          class="btns__item"
+          mat-flat-button
+          color="primary"
+          (click)="authService.login()"
+        >
+          ログイン
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</mat-toolbar>
