@@ -1,5 +1,5 @@
 export interface User {
   uid: string;
-  avatarURL: string;
+  myPokemon: number;
   createdAt: Date;
 }
