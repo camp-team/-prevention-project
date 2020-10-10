@@ -1,7 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { take } from 'rxjs/operators';
-import { UserLoginList } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { UserService } from 'src/app/services/user.service';
