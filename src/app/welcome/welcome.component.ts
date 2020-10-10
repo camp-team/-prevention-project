@@ -8,16 +8,17 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent implements OnInit {
+  maxPokemons = this.pokemonService.pokemonList.length;
+  randomPokemonId: number = Math.floor(Math.random() * this.maxPokemons + 1);
+  randomBallId: number = Math.floor(Math.random() * 4 + 1);
 
   pokemonsRight = new Array(16).fill(null).map((_, index) => {
-    const maxPokemons = this.pokemonService.pokemonList.length;
-    const pokemonId = Math.floor(Math.random() * maxPokemons + 1);
+    const pokemonId = Math.floor(Math.random() * this.maxPokemons + 1);
     return index = pokemonId;
   });
 
   pokemonsLeft = new Array(16).fill(null).map((_, index) => {
-    const maxPokemons = this.pokemonService.pokemonList.length;
-    const pokemonId = Math.floor(Math.random() * maxPokemons + 1);
+    const pokemonId = Math.floor(Math.random() * this.maxPokemons + 1);
     return index = pokemonId;
   });
 
