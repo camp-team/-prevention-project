@@ -23,6 +23,13 @@
     height: 15px;
   }
 
+  .fc-daygrid-day-events {
+    display: flex;
+  }
+  .fc-daygrid-event-harness {
+    width: 50%;
+  }
+
   .fc-pokemon1,
   .fc-pokemon1 div,
   .fc-pokemon1 span a {
