@@ -1,2 +1,70 @@
-<p>welcome works!</p>
-<button (click)="login()">ログイン</button>
+<div class="welcome-wrap">
+  <section class="pokemon-top">
+    <div class="pokemon-top__swiper">
+      <div class="pokemon-top__images-wrap pokemon-top__images-wrap--right">
+        <img
+          class="pokemon-top__images"
+          *ngFor="let pokemonId of pokemonsRight"
+          src="assets/images/{{ pokemonId }}.png"
+          alt=""
+        />
+      </div>
+      <div class="pokemon-top__text-wrap">
+        <p class="pokemon-top__text">
+          手あらい、うがいで毎日<br />
+          ポケモンゲットしよう！
+        </p>
+        <button class="pokemon-top__login-btn main-btn" (click)="login()">
+          ログイン
+        </button>
+      </div>
+      <div class="pokemon-top__images-wrap pokemon-top__images-wrap--left">
+        <img
+          class="pokemon-top__images"
+          *ngFor="let pokemonId of pokemonsLeft"
+          src="assets/images/{{ pokemonId }}.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+      <div class="about__body">
+        <div class="about__first about__flex">
+          <img
+            class="about__ball-image"
+            src="assets/ball/{{ randomBallId }}.png"
+            alt=""
+          />
+          <p class="about__text">
+            外からかえったら、1日1回しつもんに答えてポケモンをゲット！
+          </p>
+          <img
+            class="about__pokemon-image"
+            src="assets/images/{{ randomPokemonId }}.png"
+            alt=""
+          />
+        </div>
+        <div class="about__second about__flex">
+          <p class="about__text">
+            つかまえたポケモンはずかんにとうろくされていくよ！
+          </p>
+        </div>
+        <div class="about__third about__flex">
+          <img class="pokemon-top__images" src="assets/images/25.png" alt="" />
+
+          <p class="about__text">
+            毎日キレイにしてキミもポケモンマスターだ！！
+          </p>
+          <img
+            class="about__ball-image"
+            src="assets/ball/{{ randomBallId }}.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
