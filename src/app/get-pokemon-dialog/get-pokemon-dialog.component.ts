@@ -11,7 +11,6 @@ export class GetPokemonDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
-      // Congratulation→112,111
       Congratulation;
     }
   ) { }
