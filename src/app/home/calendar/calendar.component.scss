@@ -1,0 +1,9 @@
+:host ::ng-deep {
+  .fc-pokemon,
+  .fc-pokemon div,
+  .fc-pokemon span a {
+    border: none;
+    background: url('/assets/images/001.png') no-repeat;
+    background-size: 50px 50px;
+  }
+}
