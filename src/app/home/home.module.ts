@@ -5,9 +5,10 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 
 @NgModule({
-  declarations: [HomeComponent, CalendarComponent],
+  declarations: [HomeComponent, CalendarComponent, PokemonListComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [CommonModule, HomeRoutingModule, FullCalendarModule],
 })

@@ -1,0 +1,26 @@
+@import 'mixins';
+
+.pokemon-list {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+}
+
+.pokemon {
+  text-align: center;
+  margin: 0 auto;
+  &__img {
+    background: #ffffff;
+    width: 80px;
+    height: 80px;
+    margin: 0 0 5px;
+    border: solid 1px #e3e3e3;
+    border-radius: 6px;
+    img {
+      object-fit: contain;
+    }
+  }
+  &__name {
+    margin: 0;
+  }
+}
