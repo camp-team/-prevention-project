@@ -7,8 +7,8 @@
   place-items: center;
   background: #f2f2f2;
   padding-top: calc((100vw / 750) * 40);
-  @media screen and (max-width: 768px) {
-    padding-top: 0;
+  @media screen and (max-width: 1080px) {
+    display: flex;
   }
   &__swiper {
     background: #fff url(/assets/background/storage.png) center repeat-x;
@@ -19,28 +19,37 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     padding: 24px 32px;
+    @media screen and (max-width: 1080px) {
+      display: block;
+    }
   }
   &__images-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 16px;
+    @media screen and (max-width: 1080px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    @media screen and (max-width: 750px) {
+      display: none;
+    }
   }
   &__images {
     max-width: 72px;
+  }
+  &__text-wrap {
+    text-align: center;
   }
   &__text {
     font-size: 26px;
     font-weight: bold;
     color: #ffa353;
+    margin-bottom: 56px;
   }
   &__login-btn {
-    position: absolute;
-    z-index: 10;
-    bottom: calc(50% - 144px);
-    left: 50%;
-    transform: translateX(-50%);
+    margin-bottom: 24px;
   }
 }
 

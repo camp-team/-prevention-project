@@ -9,10 +9,15 @@
           alt=""
         />
       </div>
-      <p class="pokemon-top__text">
-        手あらい、うがいで毎日<br />
-        ポケモンゲットしよう！
-      </p>
+      <div class="pokemon-top__text-wrap">
+        <p class="pokemon-top__text">
+          手あらい、うがいで毎日<br />
+          ポケモンゲットしよう！
+        </p>
+        <button class="pokemon-top__login-btn main-btn" (click)="login()">
+          ログイン
+        </button>
+      </div>
       <div class="pokemon-top__images-wrap pokemon-top__images-wrap--left">
         <img
           class="pokemon-top__images"
@@ -21,9 +26,6 @@
           alt=""
         />
       </div>
-      <button class="pokemon-top__login-btn main-btn" (click)="login()">
-        ログイン
-      </button>
     </div>
   </section>
 
