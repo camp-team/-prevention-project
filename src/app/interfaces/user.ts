@@ -3,5 +3,5 @@ export interface User {
   avatarURL: string;
   myPokemon: number;
   email: string;
-  createAt; Date;
+  createAt: Date;
 }
