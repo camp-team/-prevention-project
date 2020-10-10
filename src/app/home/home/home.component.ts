@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
-import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +11,7 @@ export class HomeComponent implements OnInit {
     initialView: 'dayGridMonth',
   };
 
-  constructor(public pokemonService: PokemonService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }

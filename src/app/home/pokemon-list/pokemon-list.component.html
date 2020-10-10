@@ -1,0 +1,9 @@
+<h2>ポケモン図鑑</h2>
+<div class="pokemon-list">
+  <div *ngFor="let pokemon of pokemonService.pokemonList" class="pokemon">
+    <figure class="pokemon__img">
+      <img src="/assets/images/{{ pokemon.id }}.png" alt="" />
+    </figure>
+    <p class="pokemon__name">{{ pokemon.name }}</p>
+  </div>
+</div>

@@ -56,6 +56,19 @@ img {
   }
 }
 
+.section {
+  &--main {
+    display: grid;
+    grid-template-rows: repeat(10, 464px);
+    grid-template-columns: 576px 1fr;
+    grid-column-gap: 30px;
+    @include sp {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
 .main-btn {
   font-size: 14px;
   border: transparent;
