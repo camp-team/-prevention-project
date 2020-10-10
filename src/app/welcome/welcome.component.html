@@ -1,7 +1,20 @@
 <section class="pokemon-top">
   <div class="pokemon-top__swiper">
-    <div class="pokemon-top__images-wrap" *ngFor="let pokemonId of pokemons">
-      <img class="pokemon-top__images" src="assets/images/{{pokemonId}}.png" alt="">
+    <div class="pokemon-top__images-wrap pokemon-top__images-wrap--right">
+      <img
+        class="pokemon-top__images"
+        *ngFor="let pokemonId of pokemonsRight"
+        src="assets/images/{{ pokemonId }}.png"
+        alt=""
+      />
+    </div>
+    <div class="pokemon-top__images-wrap pokemon-top__images-wrap--left">
+      <img
+        class="pokemon-top__images"
+        *ngFor="let pokemonId of pokemonsLeft"
+        src="assets/images/{{ pokemonId }}.png"
+        alt=""
+      />
     </div>
   </div>
 </section>

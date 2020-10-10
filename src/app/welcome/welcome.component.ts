@@ -8,21 +8,23 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class WelcomeComponent implements OnInit {
 
-  pokemons = new Array(10).fill(null).map((_, index) => {
+  pokemonsRight = new Array(16).fill(null).map((_, index) => {
     const maxPokemons = this.pokemonService.pokemonList.length;
-    const pokemonId = Math.floor(Math.random() * maxPokemons);
+    const pokemonId = Math.floor(Math.random() * maxPokemons + 1);
     return index = pokemonId;
   });
 
-  // pokemonId = Math.floor(Math.random() * this.maxPokemons);
-
+  pokemonsLeft = new Array(16).fill(null).map((_, index) => {
+    const maxPokemons = this.pokemonService.pokemonList.length;
+    const pokemonId = Math.floor(Math.random() * maxPokemons + 1);
+    return index = pokemonId;
+  });
 
   constructor(
     private pokemonService: PokemonService,
   ) { }
 
   ngOnInit(): void {
-    console.log(this.pokemons);
   }
 
 }
