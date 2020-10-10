@@ -6,7 +6,6 @@
   display: grid;
   place-items: center;
   background: #f2f2f2;
-  padding-top: calc((100vw / 750) * 40);
   @media screen and (max-width: 1080px) {
     display: flex;
   }
@@ -20,7 +19,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 24px 32px;
+    padding: 24px;
     @media screen and (max-width: 1080px) {
       display: block;
     }
@@ -41,9 +40,10 @@
   }
   &__text-wrap {
     text-align: center;
+    padding: 0 8px;
   }
   &__text {
-    font-size: 26px;
+    font-size: 25px;
     font-weight: bold;
     color: #ffa353;
     margin-bottom: 56px;
@@ -63,6 +63,7 @@
     rgba(226, 251, 255, 0.5)
   );
   &__body {
+    padding: 0 16px;
     margin-top: 80px;
     display: grid;
     place-items: center;
