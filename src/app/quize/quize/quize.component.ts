@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class QuizeComponent implements OnInit {
 
+  getActionBtn: boolean;
   answers: boolean[] = [true, true, true];
   noGetPokemonList = [];
   questions: {
@@ -46,6 +47,10 @@ export class QuizeComponent implements OnInit {
         back: 'もどる'
       },
     ];
+  pokemonIds = new Array(6).fill(null).map((_, index) => {
+    const pokemonId = Math.floor(Math.random() * 151 + 1);
+    return index = pokemonId;
+  });
 
   constructor(
     private userService: UserService,
@@ -66,10 +71,16 @@ export class QuizeComponent implements OnInit {
 
   answerTrue(index: number) {
     this.answers[index] = true;
+    if (index === 2) {
+      this.getActionBtn = true;
+    }
   }
 
   answerFalse(index: number) {
     this.answers[index] = false;
+    if (index === 2) {
+      this.getActionBtn = true;
+    }
   }
 
   updateMyPokemonCollections(pokemonId: number) {

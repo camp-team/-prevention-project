@@ -36,7 +36,6 @@ export class UserService {
     return this.db.doc(`users/${user.uid}`).update(user);
   }
   updateMyPokemonCollections(pokemonId: number, uid: string) {
-    console.log('affaf', pokemonId);
     return this.db.doc(`users/${uid}/collections/pokemons`).update({
       [pokemonId]: true
     });

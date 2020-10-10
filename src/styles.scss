@@ -99,11 +99,18 @@ img {
   display: inline-block;
   text-align: center;
   font-weight: bold;
+  transition: 1s;
   &--small {
     font-size: 12px;
-    padding: 14px;
-    min-width: fit-content;
+    min-width: 140px;
     line-height: 1.5;
+  }
+  &--disabled {
+    color: $light-disabled-text;
+    background-color: rgba(black, 0.26);
+    pointer-events: none;
+    cursor: auto;
+    transition: 1s;
   }
 }
 
@@ -121,10 +128,29 @@ img {
   display: inline-block;
   text-align: center;
   font-weight: bold;
+  transition: 1s;
   &--small {
     font-size: 12px;
-    padding: 14px;
-    min-width: fit-content;
+    min-width: 140px;
     line-height: 1.5;
   }
+  &--disabled {
+    color: $light-disabled-text;
+    background: rgba(black, 0.26);
+    pointer-events: none;
+    cursor: auto;
+    transition: 1s;
+  }
+}
+
+.mat-step-icon-selected {
+  background-image: linear-gradient(to right, #00a399, #009a42);
+}
+
+.mat-step-icon-state-edit {
+  background-image: linear-gradient(to right, #00a399, #009a42);
+}
+
+.mat-step-label-selected {
+  font-weight: normal;
 }
