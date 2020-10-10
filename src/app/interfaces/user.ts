@@ -1,7 +1,5 @@
 export interface User {
-  userId: string;
+  uid: string;
   avatarURL: string;
-  myPokemon: number;
-  email: string;
-  createAt: Date;
+  createdAt: Date;
 }
