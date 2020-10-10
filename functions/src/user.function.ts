@@ -15,7 +15,7 @@ export const createUserAccount = functions
     db.doc(`users/${user.uid}`)
       .set({
         uid: user.uid,
-        name: user.displayName,
+        userName: user.displayName,
         createdAt: new Date(),
       })
       .then(() => {
