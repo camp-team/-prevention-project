@@ -118,7 +118,8 @@ img {
   }
   &--disabled {
     color: $light-disabled-text;
-    background-color: rgba(black, 0.26);
+    background-image: none;
+    background: rgba(black, 0.26);
     pointer-events: none;
     cursor: auto;
     transition: 1s;
@@ -150,6 +151,7 @@ img {
   }
   &--disabled {
     color: $light-disabled-text;
+    background-image: none;
     background: rgba(black, 0.26);
     pointer-events: none;
     cursor: auto;
