@@ -11,6 +11,20 @@
     max-width: 500px;
   }
 
+  .fc .fc-toolbar-title {
+    font-size: 15px;
+    font-weight: normal;
+  }
+
+  .fc-toolbar-chunk {
+    display: flex;
+    button {
+      display: flex;
+      justify-content: center;
+      max-width: 30px;
+    }
+  }
+
   .fc .fc-daygrid-day-number {
     padding: 0;
     padding-right: 4px;
