@@ -3,7 +3,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { auth, User } from 'firebase';
+import { userInfo } from 'os';
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -23,12 +25,18 @@ export class AuthService {
     });
   }
 
-  async login(): Promise<void> {
+  login() {
     const provider = new auth.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
-    return this.afAuth.signInWithPopup(provider).then(() => {
+    this.afAuth.signInWithPopup(provider).then((result) => {
+      if (result.additionalUserInfo.isNewUser) {
+        this.isInitialLogin = true;
+        this.router.navigateByUrl('/init-form');
+      } else {
+        this.router.navigateByUrl('');
+      }
       this.snackBar.open('ログインしました', null, {
-        duration: 2000,
+        duration: 2500,
       });
     });
   }
@@ -36,7 +44,7 @@ export class AuthService {
   logout() {
     this.afAuth.signOut().then(() => {
       this.snackBar.open('ログアウトしました', null, {
-        duration: 2000,
+        duration: 2500,
       });
       this.router.navigateByUrl('/welcome');
     });

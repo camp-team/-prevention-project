@@ -70,13 +70,10 @@ export class InitFormComponent implements OnInit, AfterViewInit {
   test() {
     const index = this.swiper.activeIndex;
     if (index === 0) {
-      console.log('1');
       this.getingPokemonId = 1;
     } else if (index === 1) {
-      console.log('4');
       this.getingPokemonId = 4;
     } else {
-      console.log('7');
       this.getingPokemonId = 7;
     }
     this.userService.updateMyPokemonCollections(this.getingPokemonId, this.userService.uid).then(() => {
