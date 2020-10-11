@@ -117,21 +117,28 @@ export class QuizeComponent implements OnInit {
       Math.random() * this.noGetPokemonList.length + 1
     );
     if (result === 3) {
-      new Array(2).fill(null).forEach(() => {
+      const submitPokemons = [];
+      new Array(2).fill(null).forEach((_, i) => {
         const randomNumber = Math.floor(
           Math.random() * this.noGetPokemonList.length + 1
         );
+        submitPokemons.push(this.noGetPokemonList[randomNumber]);
         this.updateMyPokemonCollections(this.noGetPokemonList[randomNumber]);
         this.numbers.push(this.noGetPokemonList[randomNumber]);
         this.noGetPokemonList.splice(randomNumber, 1);
+        if (i === 1) {
+          this.reportDateAndPokemon(submitPokemons[0], submitPokemons[1]);
+        }
       });
     } else if (result === 0) {
+      this.reportDateAndPokemon();
       this.router.navigateByUrl('');
       this.snackBar.open('ざんねん！またあしたチャレンジしよう！', null, {
         duration: 3000
       });
       return;
     } else {
+      this.reportDateAndPokemon(this.noGetPokemonList[randomPokemonId]);
       this.updateMyPokemonCollections(this.noGetPokemonList[randomPokemonId]);
       this.numbers.push(this.noGetPokemonList[randomPokemonId]);
 
