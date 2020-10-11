@@ -23,7 +23,6 @@ export class UserService {
     })
   );
 
-
   constructor(
     private afAuth: AngularFireAuth,
     private db: AngularFirestore,
@@ -46,6 +45,13 @@ export class UserService {
 
   updateUser(user: Omit<User, 'userName' | 'createdAt'>): Promise<void> {
     return this.db.doc(`users/${user.uid}`).update(user);
+  }
+
+  getTodayLogin(uid: string): Observable<UserLoginList> {
+    const date: string = this.transDate().substr(0, 7);
+    return this.db
+      .doc<UserLoginList>(`users/${uid}/dates/${date}`)
+      .valueChanges();
   }
 
   updateMyPokemonCollections(pokemonId: number, uid: string) {
