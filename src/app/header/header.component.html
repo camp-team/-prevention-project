@@ -1,6 +1,6 @@
 <mat-toolbar class="header">
   <mat-toolbar-row class="header-wrapper">
-    <h1 class="header-wrapper__title">ポケコロ</h1>
+    <img class="header-wrapper__title" src="assets/logo/title.svg" alt="" />
     <div *ngIf="userService.user$ | async as user; else default" class="button">
       <button
         class="button__icon"
