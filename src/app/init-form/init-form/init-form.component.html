@@ -4,33 +4,19 @@
   </div>
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
+      <div *ngFor="let pokemon of initPokemons index as i" class="swiper-slide">
         <div class="slide-img">
-          <img src="assets/images/{{ initPokemons[0].id }}.png" alt="" />
+          <img src="assets/images/{{ pokemon.id }}.png" alt="" />
         </div>
         <div class="slide-content">
-          <div class="caption">{{ initPokemons[0].name }}</div>
+          <div class="caption">{{ pokemon.name }}</div>
         </div>
       </div>
-      <div class="swiper-slide">
-        <div class="slide-img">
-          <img src="assets/images/{{ initPokemons[1].id }}.png" alt="" />
-        </div>
-        <div class="slide-content">
-          <div class="caption">{{ initPokemons[1].name }}</div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="slide-img">
-          <img src="assets/images/{{ initPokemons[2].id }}.png" alt="" />
-        </div>
-        <div class="slide-content">
-          <div class="caption">{{ initPokemons[2].name }}</div>
-        </div>
-      </div>
+
     </div>
     <div class="swiper-button-prev swiper-button-white"></div>
     <div class="swiper-button-next swiper-button-white"></div>
     <div class="swiper-pagination swiper-pagination-white"></div>
   </div>
+  <button (click)="test()" class="sub-btn">キミにきめた！！</button>
 </div>
