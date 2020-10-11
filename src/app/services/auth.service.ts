@@ -3,9 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { auth, User } from 'firebase';
-import { userInfo } from 'os';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
