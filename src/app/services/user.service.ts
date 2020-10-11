@@ -23,7 +23,6 @@ export class UserService {
     })
   );
 
-
   constructor(
     private afAuth: AngularFireAuth,
     private db: AngularFirestore,
@@ -41,6 +40,13 @@ export class UserService {
   getLoginList(uid: string): Observable<UserLoginList[]> {
     return this.db
       .collection<UserLoginList>(`users/${uid}/dates`)
+      .valueChanges();
+  }
+
+  getTodayLogin(uid: string): Observable<UserLoginList> {
+    const date: string = this.transDate().substr(0, 7);
+    return this.db
+      .doc<UserLoginList>(`users/${uid}/dates/${date}`)
       .valueChanges();
   }
 
