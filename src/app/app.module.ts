@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,10 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { GetPokemonDialogComponent } from './get-pokemon-dialog/get-pokemon-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import localeJa from '@angular/common/locales/ja';
+import { DatePipe, registerLocaleData } from '@angular/common';
 
+registerLocaleData(localeJa);
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
 
 @NgModule({
@@ -35,7 +38,14 @@ FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
     FullCalendarModule,
     MatSnackBarModule,
   ],
-  providers: [{ provide: REGION, useValue: 'asia-northeast1' }],
+  providers: [
+    DatePipe,
+    {
+      provide: LOCALE_ID,
+      useValue: 'ja-JP',
+    },
+    { provide: REGION, useValue: 'asia-northeast1' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
