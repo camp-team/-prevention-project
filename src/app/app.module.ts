@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import localeJa from '@angular/common/locales/ja';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import {MatDialogModule} from '@angular/material/dialog';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -27,7 +28,7 @@ registerLocaleData(localeJa);
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, GetPokemonDialogComponent],
+  declarations: [AppComponent, WelcomeComponent, GetPokemonDialogComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
