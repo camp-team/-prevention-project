@@ -50,19 +50,18 @@ export class CalendarComponent implements OnInit, OnDestroy {
             if (monthData[i]?.pokemonId1) {
               data.push({
                 date: monthData[i].date,
-                className1,
+                className: className1,
               });
-              if (monthData[i].pokemonId2) {
-                console.log('ruad');
-                data.push({
-                  date: monthData[i].date,
-                  className2,
-                });
-              }
             }
+            if (monthData[i]?.pokemonId2) {
+              data.push({
+                date: monthData[i].date,
+                className: className2,
+              });
+            }
+            this.calendarOptions.events = data;
           }
         });
-        this.calendarOptions.events = data;
       });
   }
 
