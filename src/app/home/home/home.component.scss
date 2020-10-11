@@ -6,3 +6,24 @@ app-pokemon-list {
     margin-top: 56px;
   }
 }
+
+.quize {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__contents {
+    h1 {
+      margin: 0 0 16px;
+    }
+    @include sp {
+      h1 {
+        font-size: 24px;
+      }
+    }
+  }
+  &__image {
+    opacity: 0.6;
+    width: 160px;
+    transform: rotate(-25deg);
+  }
+}
