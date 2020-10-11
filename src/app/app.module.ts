@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +22,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import localeJa from '@angular/common/locales/ja';
+import { DatePipe, registerLocaleData } from '@angular/common';
+import {MatDialogModule} from '@angular/material/dialog';
 
+
+
+registerLocaleData(localeJa);
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
 
 @NgModule({
@@ -48,8 +54,16 @@ FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatDialogModule,
   ],
-  providers: [{ provide: REGION, useValue: 'asia-northeast1' }],
+  providers: [
+    DatePipe,
+    {
+      provide: LOCALE_ID,
+      useValue: 'ja-JP',
+    },
+    { provide: REGION, useValue: 'asia-northeast1' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
