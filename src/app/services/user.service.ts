@@ -2,9 +2,9 @@ import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { User } from 'firebase';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { User } from '../interfaces/user';
 import { UserLoginList } from '../interfaces/user';
 
 @Injectable({
@@ -40,6 +40,13 @@ export class UserService {
   getLoginList(uid: string): Observable<UserLoginList[]> {
     return this.db
       .collection<UserLoginList>(`users/${uid}/dates`)
+      .valueChanges();
+  }
+
+  getTodayLogin(uid: string): Observable<UserLoginList> {
+    const date: string = this.transDate().substr(0, 7);
+    return this.db
+      .doc<UserLoginList>(`users/${uid}/dates/${date}`)
       .valueChanges();
   }
 

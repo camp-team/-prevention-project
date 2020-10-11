@@ -1,12 +1,20 @@
 <div class="container">
   <div class="section">
     <h1>クイズに答えてポケモンをゲットしよう！</h1>
-    <button routerLink="/quize" class="main-btn">クイズにチャレンジする</button>
+    <a
+      routerLink=" '/quize' "
+      [ngClass]="!isTodayAnswer ? 'main-btn' : 'main-btn main-btn--disabled'"
+      >{{
+        !isTodayAnswer ? 'クイズにチャレンジする' : '今日のクイズはおわりました'
+      }}</a
+    >
   </div>
 </div>
-<div class="container container--color">
-  <div class="section section--main">
-    <app-pokemon-list></app-pokemon-list>
-    <app-calendar></app-calendar>
+<div class="color-body">
+  <div class="container">
+    <div class="section section--main">
+      <app-pokemon-list></app-pokemon-list>
+      <app-calendar></app-calendar>
+    </div>
   </div>
 </div>
