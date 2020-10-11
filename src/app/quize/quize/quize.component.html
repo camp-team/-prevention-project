@@ -1,6 +1,46 @@
-<p>quize works!</p>
-<p>
-  <button (click)="submit()">
-    これで決定する。
-  </button>
-</p>
+<div class="bga">
+  <div class="container">
+    <div class="quize">
+      <h2 class="quize__title">しつもんに答えてポケモンをゲットしよう！！</h2>
+      <mat-horizontal-stepper class="quize__stepper">
+        <ng-container *ngFor="let question of questions; index as i">
+          <mat-step class="quize__label" [label]="question.label">
+            <p class="quize__text">{{ question.questionText }}</p>
+            <img
+              *ngFor="let pokemonId of pokemonIds"
+              class="quize__pokemon-image"
+              src="assets/sprites/{{ pokemonId }}.png"
+              alt=""
+            />
+            <div class="quize__actions">
+              <button
+                class="main-btn main-btn--small"
+                matStepperNext
+                (click)="answerFalse(i)"
+              >
+                {{ question.no }}
+              </button>
+              <button
+                class="main-btn main-btn--small"
+                matStepperNext
+                (click)="answerTrue(i)"
+              >
+                {{ question.yes }}
+              </button>
+              <button class="sub-btn sub-btn--small" matStepperPrevious>
+                {{ question.back }}
+              </button>
+            </div>
+          </mat-step>
+        </ng-container>
+      </mat-horizontal-stepper>
+      <button
+        class="sub-btn get-btn"
+        [class.sub-btn--disabled]="!getActionBtn"
+        (click)="submit()"
+      >
+        キミに決めた！！！
+      </button>
+    </div>
+  </div>
+</div>
