@@ -1,0 +1,74 @@
+@import 'mixins';
+
+p,
+h1,
+h2 {
+  margin: 0;
+}
+
+.get-btn {
+  font-size: 15px;
+}
+
+.bga {
+  background: repeating-linear-gradient(
+    25deg,
+    #cdf3e1,
+    #effcda,
+    #dbf9fd,
+    #ede4f9,
+    #dbf9fd,
+    #effcda,
+    #cdf3e1
+  );
+  height: 100vh;
+  @include sp {
+    height: 150vh;
+  }
+}
+
+mat-horizontal-stepper {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.quize {
+  height: 100%;
+  padding: 80px 24px;
+  display: grid;
+  gap: 32px;
+  color: #404248;
+  place-items: center;
+  text-align: center;
+  &__title {
+    font-size: 34px;
+    letter-spacing: 0.02em;
+  }
+  &__stepper {
+    width: 100%;
+    @include sp {
+      min-width: 380px;
+    }
+    @media screen and (max-width: 450px) {
+      min-width: 240px;
+    }
+  }
+  &__label {
+    font-weight: normal;
+  }
+  &__text {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  &__pokemon-image {
+    margin: 24px 16px;
+  }
+  &__actions {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    @include sp {
+      flex-wrap: wrap-reverse;
+    }
+  }
+}
