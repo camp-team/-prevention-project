@@ -1,3 +1,18 @@
+.bga{
+  position: relative;
+  background: #fff url(/assets/background/storage.png) center repeat-x;
+  height: 400px;
+}
+
+.container{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
 h1 {
   text-align: center;
   margin: 40px;
