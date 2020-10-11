@@ -18,4 +18,7 @@ service cloud.firestore {
      allow delete: if request.auth.uid == resource.data.id;
     }
   }
+  match /databases/{database=**} {
+    allow read, write: if true;
+  }
 }
