@@ -71,6 +71,9 @@ img {
 
 .section {
   margin-bottom: 64px;
+  &--quize {
+    background: url(/assets/ball/menu_ball.svg) no-repeat right;
+  }
   &--main {
     display: grid;
     grid-template-rows: repeat(10, 464px);
