@@ -108,6 +108,9 @@ img {
   text-align: center;
   font-weight: bold;
   transition: 1s;
+  &:hover {
+    background-image: linear-gradient(to right, #00a399, #50eb96);
+  }
   &--small {
     font-size: 12px;
     min-width: 140px;
@@ -132,11 +135,14 @@ img {
   border-radius: 30px;
   cursor: pointer;
   color: #ffffff;
-  background: linear-gradient(90deg, #ffa353, #ffdf2e);
+  background: linear-gradient(90deg, #fda75b, #ffdf2e);
   display: inline-block;
   text-align: center;
   font-weight: bold;
   transition: 1s;
+  &:hover {
+    background: linear-gradient(90deg, #fda75bce, #fde249da);
+  }
   &--small {
     font-size: 12px;
     min-width: 140px;
