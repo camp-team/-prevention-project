@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { GetPokemonDialogComponent } from 'src/app/get-pokemon-dialog/get-pokemon-dialog.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -13,6 +16,7 @@ export class QuizeComponent implements OnInit {
   getActionBtn: boolean;
   answers: boolean[] = [true, true, true];
   noGetPokemonList = [];
+  numbers = [];
   questions: {
     label: string;
     questionText: string;
@@ -54,8 +58,10 @@ export class QuizeComponent implements OnInit {
   constructor(
     private userService: UserService,
     private authService: AuthService,
-    private snackBar: MatSnackBar
-  ) {}
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.userService
@@ -102,8 +108,8 @@ export class QuizeComponent implements OnInit {
 
   async submit() {
     let result = 0;
-    this.questions.forEach((qestion) => {
-      if (qestion) {
+    this.answers.forEach((answer) => {
+      if (answer) {
         result++;
       }
     });
@@ -111,19 +117,40 @@ export class QuizeComponent implements OnInit {
       Math.random() * this.noGetPokemonList.length + 1
     );
     if (result === 3) {
-      new Array(2).fill(null).forEach(() => {
+      const submitPokemons = [];
+      new Array(2).fill(null).forEach((_, i) => {
         const randomNumber = Math.floor(
           Math.random() * this.noGetPokemonList.length + 1
         );
+        submitPokemons.push(this.noGetPokemonList[randomNumber]);
         this.updateMyPokemonCollections(this.noGetPokemonList[randomNumber]);
+        this.numbers.push(this.noGetPokemonList[randomNumber]);
+        this.noGetPokemonList.splice(randomNumber, 1);
+        if (i === 1) {
+          this.reportDateAndPokemon(submitPokemons[0], submitPokemons[1]);
+        }
       });
     } else if (result === 0) {
+      this.reportDateAndPokemon();
+      this.router.navigateByUrl('');
+      this.snackBar.open('ざんねん！またあしたチャレンジしよう！', null, {
+        duration: 3000
+      });
       return;
     } else {
+      this.reportDateAndPokemon(this.noGetPokemonList[randomPokemonId]);
       this.updateMyPokemonCollections(this.noGetPokemonList[randomPokemonId]);
+      this.numbers.push(this.noGetPokemonList[randomPokemonId]);
+
+      this.snackBar.open('ゲットだぜ！', null, {
+        duration: 2500
+      });
     }
-    this.snackBar.open('ゲットだぜ！', null, {
-      duration: 2500,
+    this.dialog.open(GetPokemonDialogComponent, {
+      width: '1000px',
+      data: {
+        Congratulation: this.numbers
+      }
     });
   }
 }

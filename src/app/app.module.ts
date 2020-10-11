@@ -19,6 +19,9 @@ import { GetPokemonDialogComponent } from './get-pokemon-dialog/get-pokemon-dial
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import localeJa from '@angular/common/locales/ja';
 import { DatePipe, registerLocaleData } from '@angular/common';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 registerLocaleData(localeJa);
 FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
@@ -37,6 +40,7 @@ FullCalendarModule.registerPlugins([dayGridPlugin, interactionPlugin]);
     AngularFireAnalyticsModule,
     FullCalendarModule,
     MatSnackBarModule,
+    MatDialogModule,
   ],
   providers: [
     DatePipe,
