@@ -45,12 +45,20 @@ export class CalendarComponent implements OnInit, OnDestroy {
         const data = [];
         allData.forEach((monthData: UserLoginList) => {
           for (let i = 1; i <= 31; i++) {
-            const className: string = 'fc-pokemon' + monthData[i]?.pokemonId1;
-            if (monthData[i]) {
+            const className1: string = 'fc-pokemon' + monthData[i]?.pokemonId1;
+            const className2: string = 'fc-pokemon' + monthData[i]?.pokemonId2;
+            if (monthData[i]?.pokemonId1) {
               data.push({
                 date: monthData[i].date,
-                className,
+                className1,
               });
+              if (monthData[i].pokemonId2) {
+                console.log('ruad');
+                data.push({
+                  date: monthData[i].date,
+                  className2,
+                });
+              }
             }
           }
         });
