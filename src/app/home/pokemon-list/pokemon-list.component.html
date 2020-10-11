@@ -1,9 +1,23 @@
 <h2 class="heading">ポケモン図鑑</h2>
 <div class="pokemon-list">
-  <div *ngFor="let pokemon of pokemonService.pokemonList" class="pokemon">
-    <figure class="pokemon__img">
-      <img src="/assets/images/{{ pokemon.id }}.png" alt="" />
+  <div
+    *ngFor="let pokemon of pokemonService.pokemonList; index as i"
+    class="pokemon"
+  >
+    <figure
+      [ngClass]="
+        pokemonList[i] ? 'pokemon__img' : 'pokemon__img pokemon__img--no-image'
+      "
+    >
+      <img
+        *ngIf="pokemonList[i]"
+        src="/assets/images/{{ pokemon.id }}.png"
+        alt=""
+      />
+      <span class="pokemon__no-image" *ngIf="!pokemonList[i]">{{
+        pokemon.id
+      }}</span>
     </figure>
-    <p class="pokemon__name">{{ pokemon.name }}</p>
+    <p class="pokemon__name">{{ pokemonList[i] ? pokemon.name : '？？？' }}</p>
   </div>
 </div>
