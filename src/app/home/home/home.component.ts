@@ -31,7 +31,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.userService
       .getTodayLogin(this.authService.uid)
       .subscribe((res: UserLoginList) => {
-        this.isTodayAnswer = res[day]?.date ? true : false;
+        if (res) {
+          this.isTodayAnswer = res[day]?.date ? true : false;
+        }
       });
   }
 
