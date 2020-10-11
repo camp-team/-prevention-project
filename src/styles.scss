@@ -80,7 +80,7 @@ img {
   }
   &--main {
     display: grid;
-    grid-template-rows: repeat(10, 464px);
+    grid-template-rows: repeat(8, 464px);
     grid-template-columns: 576px 1fr;
     grid-column-gap: 30px;
     @include sp {
