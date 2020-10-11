@@ -122,12 +122,12 @@ export class QuizeComponent implements OnInit {
       this.snackBar.open('ゲットだぜ！', null, {
         duration: 2500
       });
-      this.dialog.open(GetPokemonDialogComponent, {
-        width: '1000px',
-        data: {
-          Congratulation: this.numbers
-        }
-      });
     }
+    this.dialog.open(GetPokemonDialogComponent, {
+      width: '1000px',
+      data: {
+        Congratulation: this.numbers
+      }
+    });
   }
 }
