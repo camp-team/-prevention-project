@@ -51,20 +51,21 @@ img {
   margin: 0 0 16px;
 }
 
+.color-body {
+  padding-top: 56px;
+  background: linear-gradient(
+    90deg,
+    rgba(254, 248, 194, 0.5),
+    rgba(226, 251, 255, 0.5)
+  );
+}
+
 .container {
   margin: 0 auto;
   max-width: 1024px;
   padding: 0 24px;
   @include sp {
     padding: 0 16px;
-  }
-  &--color {
-    padding-top: 56px;
-    background: linear-gradient(
-      90deg,
-      rgba(254, 248, 194, 0.5),
-      rgba(226, 251, 255, 0.5)
-    );
   }
 }
 

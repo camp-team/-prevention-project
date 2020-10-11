@@ -1,0 +1,15 @@
+.header-wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  justify-content: space-between;
+  &__title {
+    width: 104px;
+  }
+}
+
+.button {
+  &__icon {
+    background: center / cover;
+    box-shadow: none;
+  }
+}
