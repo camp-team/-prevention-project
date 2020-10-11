@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-welcome',
@@ -21,15 +23,29 @@ export class WelcomeComponent implements OnInit {
     const pokemonId = Math.floor(Math.random() * this.maxPokemons + 1);
     return index = pokemonId;
   });
+  myPokemon: number;
 
   constructor(
     private pokemonService: PokemonService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
+    private userService: UserService
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.userService.user$.subscribe((user) => {
+      this.myPokemon = user?.myPokemon;
+    });
+  }
 
   login() {
-    this.authService.login();
+    this.authService.login().then(() => {
+      console.log(this.myPokemon);
+      if (this.myPokemon) {
+        this.router.navigateByUrl('/');
+      } else {
+        this.router.navigateByUrl('/init-form');
+      }
+    });
   }
 }

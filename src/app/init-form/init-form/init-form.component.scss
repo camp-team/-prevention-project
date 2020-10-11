@@ -1,0 +1,110 @@
+@import 'mixins';
+@import 'swiper/swiper-bundle.css';
+
+p,
+h1,
+h2 {
+  margin: 0;
+}
+
+.bga {
+  background: repeating-linear-gradient(
+    25deg,
+    #cdf3e1,
+    #effcda,
+    #dbf9fd,
+    #ede4f9,
+    #dbf9fd,
+    #effcda,
+    #cdf3e1
+  );
+  height: 100vh;
+  text-align: center;
+  @include sp {
+    height: 150vh;
+  }
+}
+
+body {
+  background: #fff;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.init {
+  padding: 40px 0;
+  &__title {
+    text-align: center;
+    color: #404248;
+  }
+}
+
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 40px;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.slide-img img {
+  width: 100%;
+}
+.swiper-slide .slide-content .caption {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  color: #fff;
+  font-size: 16px;
+  background-color: rgba(0, 127, 127, 0.5);
+  padding: 3px 8px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  border: transparent;
+  outline: none;
+  min-width: 48px;
+  padding: 16px;
+  border-radius: 56.25%;
+  cursor: pointer;
+  color: #ffffff;
+  background: linear-gradient(to top, #009a42, #00a399);
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  transition: 1s;
+  line-height: 2.5;
+}
+
+.swiper-button-prev {
+  left: 25%;
+}
+
+.swiper-button-next {
+  right: 25%;
+}
+
+@keyframes fromBottom {
+  0% {
+    top: 80%;
+    opacity: 0;
+  }
+  100% {
+    top: 20%;
+    opacity: 1;
+  }
+}
+.swiper-slide-active h1,
+.swiper-slide-active h2,
+.swiper-slide-active h3 {
+  animation: fromBottom 0.6s ease-in-out 0s 1 normal both;
+}

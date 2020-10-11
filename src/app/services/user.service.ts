@@ -27,7 +27,7 @@ export class UserService {
     private afAuth: AngularFireAuth,
     private db: AngularFirestore,
     private datePipe: DatePipe
-  ) {}
+  ) { }
 
   private transDate() {
     return this.datePipe.transform(new Date(), 'yyyy-MM-dd');
@@ -43,15 +43,15 @@ export class UserService {
       .valueChanges();
   }
 
+  updateUser(user: Omit<User, 'userName' | 'createdAt'>): Promise<void> {
+    return this.db.doc(`users/${user.uid}`).update(user);
+  }
+
   getTodayLogin(uid: string): Observable<UserLoginList> {
     const date: string = this.transDate().substr(0, 7);
     return this.db
       .doc<UserLoginList>(`users/${uid}/dates/${date}`)
       .valueChanges();
-  }
-
-  updateUser(user: User): Promise<void> {
-    return this.db.doc(`users/${user.uid}`).update(user);
   }
 
   updateMyPokemonCollections(pokemonId: number, uid: string) {

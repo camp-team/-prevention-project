@@ -1,1 +1,22 @@
-<p>init-form works!</p>
+<div class="bga">
+  <div class="init">
+    <h1 class="init__title">最初のあいぼうをきめよう！！</h1>
+  </div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div *ngFor="let pokemon of initPokemons index as i" class="swiper-slide">
+        <div class="slide-img">
+          <img src="assets/images/{{ pokemon.id }}.png" alt="" />
+        </div>
+        <div class="slide-content">
+          <div class="caption">{{ pokemon.name }}</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
+    <div class="swiper-pagination swiper-pagination-white"></div>
+  </div>
+  <button (click)="test()" class="sub-btn">キミにきめた！！</button>
+</div>
