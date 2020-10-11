@@ -3,12 +3,25 @@
     <div class="quize">
       <div class="quize__contents">
         <h1>
-          <span>クイズに答えてポケモンを</span>
-          <span>ゲットしよう！</span>
+          <ng-container *ngIf="!isTodayAnswer; else otherHeading">
+            <span>クイズに答えてポケモンを</span>
+            <span>ゲットしよう！</span>
+          </ng-container>
+          <ng-template #otherHeading>
+            <span>またあしたもチャレンジしてね！</span>
+          </ng-template>
         </h1>
-        <button routerLink="/quize" class="main-btn">
-          クイズにチャレンジする
-        </button>
+        <a
+          routerLink=" '/quize' "
+          [ngClass]="
+            !isTodayAnswer ? 'main-btn' : 'main-btn main-btn--disabled'
+          "
+          >{{
+            !isTodayAnswer
+              ? 'クイズにチャレンジする'
+              : '今日のクイズはおわりました'
+          }}</a
+        >
       </div>
       <div class="quize__image">
         <img src="assets/ball/menu_ball.svg" alt="モンスターボールの画像" />

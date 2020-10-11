@@ -1,0 +1,40 @@
+.bga {
+  background: #fff url(/assets/background/storage.png) center repeat-x;
+  height: 400px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: 580px) {
+    display: block;
+  }
+}
+
+.main {
+  button {
+    margin-top: 25px;
+    margin-left: 85px;
+    @media screen and (max-width: 580px) {
+      margin-top: 25px;
+      margin-left: 135px;
+    }
+  }
+  h1 {
+    text-align: center;
+    margin: 40px;
+    font-size: 40px;
+  }
+  p {
+    text-align: center;
+    color: rgb(black, 0.6);
+    font-size: 18px;
+    min-width: 360px;
+  }
+}
+
+img{
+  @media screen and (max-width: 580px) {
+    margin-left: 30px;
+  }
+}
