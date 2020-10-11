@@ -2,14 +2,16 @@
   <mat-toolbar-row class="header-wrapper">
     <img class="header-wrapper__title" src="assets/logo/title.svg" alt="" />
     <div *ngIf="userService.user$ | async as user; else default" class="button">
-      <button
-        class="button__icon"
-        mat-mini-fab
-        [matMenuTriggerFor]="avatar"
-        [style.background-image]="
-          'url(/assets/images/' + user.myPokemon + '.png)'
-        "
-      ></button>
+      <div class="icon-cover">
+        <button
+          class="button__icon"
+          mat-mini-fab
+          [matMenuTriggerFor]="avatar"
+          [style.background-image]="
+            'url(/assets/images/' + user.myPokemon + '.png)'
+          "
+        ></button>
+      </div>
       <mat-menu #avatar="matMenu">
         <button routerLink="/settings" mat-menu-item>
           <mat-icon>settings</mat-icon>
@@ -22,7 +24,9 @@
       </mat-menu>
     </div>
     <ng-template #default>
-      <button class="main-btn" (click)="authService.login()">ログイン</button>
+      <button class="main-btn main-btn--small" (click)="authService.login()">
+        ログイン
+      </button>
     </ng-template>
   </mat-toolbar-row>
 </mat-toolbar>
