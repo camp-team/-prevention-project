@@ -23,18 +23,13 @@ export class AuthService {
     });
   }
 
-  login() {
+  async login(): Promise<void> {
     const provider = new auth.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
-    this.afAuth.signInWithPopup(provider).then((result) => {
-      if (result.additionalUserInfo.isNewUser) {
-        this.isInitialLogin = true;
-      }
-
+    return this.afAuth.signInWithPopup(provider).then(() => {
       this.snackBar.open('ログインしました', null, {
         duration: 2000,
       });
-      this.router.navigateByUrl('');
     });
   }
 

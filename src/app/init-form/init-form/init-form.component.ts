@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Pokemon } from 'src/app/interfaces/pokemon';
+import { User } from 'src/app/interfaces/user';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { UserService } from 'src/app/services/user.service';
 import Swiper, { Navigation, Pagination } from 'swiper';
@@ -28,6 +29,7 @@ export class InitFormComponent implements OnInit, AfterViewInit {
       id: this.pokemonList[6].id
     }
   ];
+  userMyPokemon;
 
   swiper;
   getingPokemonId: number;
@@ -38,7 +40,11 @@ export class InitFormComponent implements OnInit, AfterViewInit {
     private route: Router
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.userService.user$.subscribe((user) => {
+      this.userMyPokemon = user;
+    });
+  }
 
   ngAfterViewInit(): void {
     Swiper.use([Navigation, Pagination]);
@@ -77,6 +83,11 @@ export class InitFormComponent implements OnInit, AfterViewInit {
       this.snackBar.open('おめでとう！' + this.pokemonList[this.getingPokemonId - 1].name + 'をゲットしたぞ 🥳', null, {
         duration: 2500
       });
+      const user: Omit<User, 'userName' | 'createdAt'> = {
+        uid: this.userService.uid,
+        myPokemon: this.getingPokemonId
+      };
+      this.userService.updateUser(user);
       this.route.navigateByUrl('/');
     });
   }
