@@ -1,8 +1,10 @@
 import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from 'firebase';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { UserLoginList } from '../interfaces/user';
 
 @Injectable({
@@ -33,6 +35,7 @@ export class UserService {
 
   getPokemonList(uid: string) {
     return this.db.doc(`users/${uid}/collections/pokemons`).valueChanges();
+  }
 
   getLoginList(uid: string): Observable<UserLoginList[]> {
     return this.db
