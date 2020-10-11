@@ -1,1 +1,14 @@
-<p>settings works!</p>
+<div class="color-body">
+  <h1 class="heading">アカウント設定</h1>
+  <div class="settings-container">
+    <form (ngSubmit)="submit()">
+      <mat-form-field appearance="outline">
+        <mat-label>ニックネーム</mat-label>
+        <input matInput placeholder="サトシ" />
+      </mat-form-field>
+      <div class="form-btn">
+        <button class="main-btn">変更する</button>
+      </div>
+    </form>
+  </div>
+</div>

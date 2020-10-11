@@ -1,0 +1,21 @@
+.settings-container {
+  width: 580px;
+  margin: 0 auto;
+  height: 3000px;
+}
+
+.heading {
+  text-align: center;
+}
+
+mat-form-field {
+  display: block;
+
+  .mat-form-field-flex {
+    background: #ffffff;
+  }
+}
+
+.form-btn {
+  text-align: center;
+}
